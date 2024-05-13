@@ -16,7 +16,7 @@ export interface Location {
 export interface Result {
   id: number;
   name: string;
-  status: string;
+  status: 'Alive' | 'Dead' | 'uncnown';
   species: string;
   type: string;
   gender: string;
