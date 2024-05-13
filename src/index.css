@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .pagination-btn {
+    @apply p-1 w-7 h-7 grid place-content-center border-solid border-2  border-gray-600;
+  }
+}
+
 /* reset styles */
 
 * {
