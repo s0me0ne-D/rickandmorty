@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Characters } from '../interfaces/rickAndMorty';
+import { QueryParams } from '../interfaces/queryParams';
 
 const BASE_URL = 'https://rickandmortyapi.com/api/character/';
 
@@ -9,8 +10,9 @@ export const rickAndMortyApi = createApi({
     baseUrl: BASE_URL,
   }),
   endpoints: (builder) => ({
-    getCharacters: builder.query<Characters, number>({
-      query: (page) => `/?page=${page}`,
+    getCharacters: builder.query<Characters, QueryParams>({
+      query: (query) =>
+        `/?page=${query.currentPageNumber}&name=${query.name}&status=${query.status}`,
     }),
   }),
 });

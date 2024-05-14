@@ -4,13 +4,14 @@ import { ForwardIcon } from '../../../assets/icons/ForwardIcon';
 
 interface PaginationProps {
   currentPageNumber: number;
-  setCurrentPageNumber: React.Dispatch<React.SetStateAction<number>>;
+  // eslint-disable-next-line
+  updatePageNumber: (page: number) => void;
   totalPages: number;
 }
 
 export const Pagination = ({
   currentPageNumber,
-  setCurrentPageNumber,
+  updatePageNumber,
   totalPages,
 }: PaginationProps) => {
   const [pageNumbersLength, setPageNumbersLength] = useState<number[]>([]);
@@ -23,9 +24,9 @@ export const Pagination = ({
   }, []);
 
   const backOnClick = () =>
-    currentPageNumber > 1 && setCurrentPageNumber((prev) => prev - 1);
+    currentPageNumber > 1 && updatePageNumber(currentPageNumber - 1);
   const forwardOnClick = () =>
-    currentPageNumber < totalPages && setCurrentPageNumber((prev) => prev + 1);
+    currentPageNumber < totalPages && updatePageNumber(currentPageNumber + 1);
 
   const arrowBackStyle = currentPageNumber === 1 && 'opacity-40';
   const arrowForwardStyle = currentPageNumber === totalPages && 'opacity-40';
@@ -48,7 +49,8 @@ export const Pagination = ({
               className={`pagination-btn text-base hover:bg-zinc-600 ${page === currentPageNumber && 'bg-gray-500'}`}
               aria-label="Page"
               type="button"
-              onClick={() => setCurrentPageNumber(page)}
+              onClick={() => updatePageNumber(page)}
+              key={page}
             >
               {page}
             </button>

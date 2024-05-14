@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import { useGetCharactersQuery } from '../../redux/rickAndMortyApi';
 import { CharacterCard } from './CharacterCard';
 import { Pagination } from './Pagination/Pagination';
+import { QueryParams } from '../../interfaces/queryParams';
+import { Filters } from './Filters/Filters';
 
 export const Home = () => {
-  const [currentPageNumber, setCurrentPageNumber] = useState<number>(1);
-  const { data } = useGetCharactersQuery(currentPageNumber);
+  const [queryParams, setQueryParams] = useState<QueryParams>({
+    currentPageNumber: 1,
+    name: '',
+    status: '',
+  });
+  const { data } = useGetCharactersQuery(queryParams);
+
+  const handlePageNumber = (page: number) => {
+    setQueryParams((prev) => ({ ...prev, currentPageNumber: page }));
+  };
   return data ? (
     <main className="pb-5">
+      <Filters updateQueryParams={setQueryParams} queryParams={queryParams} />
       <div className="max-w-screen-lg mt-5 m-auto pl-4 pr-4 flex flex-wrap  gap-2">
         {data.results.map((character) => (
           <CharacterCard character={character} key={character.id} />
@@ -15,8 +26,8 @@ export const Home = () => {
       </div>
       {data && (
         <Pagination
-          currentPageNumber={currentPageNumber}
-          setCurrentPageNumber={setCurrentPageNumber}
+          currentPageNumber={queryParams.currentPageNumber}
+          updatePageNumber={handlePageNumber}
           totalPages={data.info.pages}
         />
       )}
