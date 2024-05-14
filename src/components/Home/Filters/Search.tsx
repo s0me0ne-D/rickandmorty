@@ -12,12 +12,14 @@ export const Search = ({ updateQueryParams }: SearchProps) => {
       | React.FormEvent<HTMLFormElement>
       | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
-    updateQueryParams((prev) => ({
-      ...prev,
-      currentPageNumber: 1,
-      name: searchName,
-    }));
-    setSearchName('');
+    if (searchName !== '') {
+      updateQueryParams((prev) => ({
+        ...prev,
+        currentPageNumber: 1,
+        name: searchName,
+      }));
+      setSearchName('');
+    }
     event.preventDefault();
   };
 
