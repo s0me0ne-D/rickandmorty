@@ -12,7 +12,7 @@ export const rickAndMortyApi = createApi({
   endpoints: (builder) => ({
     getCharacters: builder.query<Characters, QueryParams>({
       query: (query) =>
-        `/?page=${query.currentPageNumber}&name=${query.name}&status=${query.status}`,
+        `/?page=${query.currentPageNumber}&name=${query.name}&status=${query.status}&gender=${query.gender}`,
     }),
   }),
 });

@@ -28,10 +28,10 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
   return (
     <NavLink
       to="./"
-      className="min-w-36 flex-4 border-solid border-2 border-gray-600"
+      className="xs:min-w-56 sm:flex-4 border-solid border-2 border-gray-600"
     >
       <img src={character.image} alt="character" />
-      <div className="p-2 flex flex-col">
+      <div className="p-2 flex flex-col gap-2">
         <span>{character.name}</span>
         <div className="flex justify-between text-sm ">
           <span className=" opacity-70">{character.gender}</span>

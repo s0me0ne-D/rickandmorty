@@ -17,11 +17,11 @@ export const Pagination = ({
   const [pageNumbersLength, setPageNumbersLength] = useState<number[]>([]);
   useEffect(() => {
     const newPageNumberLength = [];
-    for (let i = 1; i < totalPages; i += 1) {
+    for (let i = 1; i <= totalPages; i += 1) {
       newPageNumberLength.push(i);
     }
     setPageNumbersLength(newPageNumberLength);
-  }, []);
+  }, [totalPages]);
 
   const backOnClick = () =>
     currentPageNumber > 1 && updatePageNumber(currentPageNumber - 1);

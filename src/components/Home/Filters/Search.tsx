@@ -33,7 +33,7 @@ export const Search = ({ updateQueryParams }: SearchProps) => {
       <button
         onClick={(event) => onSubmit(event)}
         type="submit"
-        className="py-1 px-2 text-white bg-transparent border-solid border-2 border-gray-600   hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:focus:ring-gray-700  dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        className="options-btn"
       >
         Search
       </button>
