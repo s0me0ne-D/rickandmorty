@@ -23,12 +23,15 @@ export const Character = ({ data }: CharacterProps) => {
         <li>
           <span className="list-title">Species:</span> {data.species}
         </li>
+        <li>
+          <span className="list-title">Origin:</span> {data.origin.name}
+        </li>
         <div>
           <span className="list-title">Episodes:</span>
           {data.episode && (
             <ul className="mt-2 flex flex-col gap-1">
               {data.episode.map((episode) => (
-                <li>
+                <li key={episode}>
                   <Episode episodeUrl={episode} />
                 </li>
               ))}
