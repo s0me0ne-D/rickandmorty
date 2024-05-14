@@ -31,7 +31,7 @@ export const Home = () => {
         /* eslint-disable */
         isError ? (
           <div className="w-full flex justify-center">
-            <span className="mt-5">Have no results</span>
+            <span className="mt-5">No results found</span>
           </div>
         ) : isFetching ? (
           <Loader />
