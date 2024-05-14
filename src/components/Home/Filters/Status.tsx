@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { QueryParams, IStatus } from '../../../interfaces/queryParams';
 import { ArrowDropDownIcon } from '../../../assets/icons/ArrowDropDownIcon';
-import { useOutsideClick } from '../../../utils/useOutsideClick';
+import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
 interface StatusProps {
   currentStatus: IStatus;

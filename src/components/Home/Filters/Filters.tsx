@@ -22,7 +22,7 @@ export const Filters = ({ queryParams, updateQueryParams }: FiltersProps) => {
   };
 
   return (
-    <div className="w-full mt-5 flex  justify-center items-center gap-3 sm:flex-row">
+    <div className="w-full mt-5 flex flex-col justify-center items-center gap-3 sm:flex-row">
       <Search updateQueryParams={updateQueryParams} />
       <div className="flex gap-3">
         <Status
@@ -38,7 +38,7 @@ export const Filters = ({ queryParams, updateQueryParams }: FiltersProps) => {
         className="options-btn py-2"
         onClick={clearFilters}
         type="button"
-        aria-label="clear"
+        aria-label="clear button"
       >
         Clear filters
       </button>

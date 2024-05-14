@@ -23,7 +23,9 @@ export const Home = () => {
     <main className="pb-5">
       <Filters updateQueryParams={setQueryParams} queryParams={queryParams} />
       {queryParams.name !== '' && (
-        <h1 className="pl-4 mt-5 text-xl font-bold ">{queryParams.name}</h1>
+        <h1 className="pl-4 mt-5 text-xl font-bold ">
+          Search: {queryParams.name}
+        </h1>
       )}
       {
         /* eslint-disable */

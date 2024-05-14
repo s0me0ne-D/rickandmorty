@@ -27,8 +27,8 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
 
   return (
     <NavLink
-      to="./"
-      className="xs:min-w-56 sm:flex-4 border-solid border-2 border-gray-600"
+      to={`./character/${character.id}`}
+      className="xs:min-w-56 border-solid border-2 border-gray-600"
     >
       <img src={character.image} alt="character" />
       <div className="p-2 flex flex-col gap-2">

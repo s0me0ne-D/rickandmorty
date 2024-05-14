@@ -4,12 +4,9 @@ module.exports = {
   theme: {
     screens: {
       xs: '426px',
+      sm: '640px',
     },
-    extend: {
-      flex: {
-        4: '1 0 21%',
-      },
-    },
+    extend: {},
   },
   plugins: [
     require('postcss-import'),
